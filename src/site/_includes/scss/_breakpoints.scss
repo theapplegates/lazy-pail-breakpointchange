@@ -1,4 +1,5 @@
 // Updated breakpoint values
+$bp-tiny: "(max-width: 20px)";
 $bp-xsmall: "(max-width: 480px)";
 $bp-small: "(min-width: 481px) and (max-width: 767px)";
 $bp-medium: "(min-width: 768px) and (max-width: 991px)";
@@ -8,7 +9,10 @@ $bp-xxlarge: "(min-width: 1600px)";
 
 // Your mixin
 @mixin bp($point) {
-  @if $point == xsmall {
+ @if $point == tiny {
+	 @media #{$bp-tiny} { @content}
+ }
+  @else if $point == xsmall {
 	@media #{$bp-xsmall} { @content; }
   }
   @else if $point == small {
